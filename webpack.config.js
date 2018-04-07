@@ -40,8 +40,15 @@ module.exports = {
         }
     },
     devServer: {
-        historyApiFallback: true,
-        noInfo: true
+      historyApiFallback: true,
+      noInfo: true,
+      proxy: {
+        "/home": {
+          target: "https://localhost:3333",
+          secure: false
+        }
+      }
+
     },
     performance: {
         hints: false

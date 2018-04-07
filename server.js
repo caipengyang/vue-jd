@@ -39,4 +39,4 @@ server.listen(3333, () => {
 
 
 //deal router
-server.use('/', require('./route/index.js')());
+server.use('/', require('./route/index.js')())

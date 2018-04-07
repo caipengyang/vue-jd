@@ -4,7 +4,7 @@ const common = require('../libs/common');
 const db = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: 'huangche201314',
+    password: 'yauta',
     database: 'myigou'
 });
 module.exports = () => {
@@ -17,6 +17,7 @@ module.exports = () => {
     });
 
     function getHomeDatas(getHomeStr, res) {
+      console.log("getHomeDatas..." + getHomeStr);
         db.query(getHomeStr, (err, data) => {
             if (err) {
                 console.log(err);
@@ -198,7 +199,7 @@ module.exports = () => {
                     let dataw = data[0];
                     //login sucess
                     if (dataw.login_password === password) {
-                        //save the session 
+                        //save the session
                         req.session['user_id'] = dataw.user_id;
                         dataw.msg = "登录成功";
                         dataw.status = 1;
